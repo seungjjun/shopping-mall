@@ -1,4 +1,4 @@
-package com.server.market.dtos;
+package com.server.market.dtos.category;
 
 import java.util.List;
 

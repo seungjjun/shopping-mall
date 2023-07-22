@@ -1,6 +1,6 @@
 package com.server.market.application;
 
-import com.server.market.models.Category;
+import com.server.market.models.category.Category;
 import com.server.market.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
