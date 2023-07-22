@@ -89,11 +89,15 @@ public class Product {
         return prices;
     }
 
-    public List<ProductOption> getOptions() {
+    public List<ProductOption> options() {
         return new ArrayList<>(options);
     }
 
     public String description() {
         return description;
+    }
+
+    public List<Image> images() {
+        return new ArrayList<>(images);
     }
 }

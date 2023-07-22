@@ -1,6 +1,10 @@
 package com.server.market.controllers;
 
+import com.server.market.application.GetProductDetailService;
 import com.server.market.application.GetProductListService;
+import com.server.market.dtos.category.CategoryDto;
+import com.server.market.dtos.image.ImageDto;
+import com.server.market.dtos.product.ProductDetailDto;
 import com.server.market.dtos.product.ProductListDto;
 import com.server.market.dtos.product.ProductSummaryDto;
 import com.server.market.models.category.Category;
@@ -36,6 +40,9 @@ class ProductControllerTest {
     @MockBean
     private GetProductListService getProductListService;
 
+    @MockBean
+    private GetProductDetailService getProductDetailService;
+
     @Test
     @DisplayName("GET /products")
     void list() throws Exception {
@@ -59,6 +66,27 @@ class ProductControllerTest {
             .andExpect(status().isOk())
             .andExpect(content().string(
                 containsString("neat")
+            ));
+    }
+
+    @Test
+    @DisplayName("GET /products/{productId}")
+    void detail() throws Exception {
+        ProductDetailDto productDetailDto = new ProductDetailDto(
+            "D000001",
+            CategoryDto.of(new Category(new CategoryId("C000001"), "category")),
+            List.of(new ImageDto("imageUrl")),
+            "product",
+            1000L,
+            List.of(),
+            "description"
+        );
+        given(getProductDetailService.getProductDetailDto("A000001")).willReturn(productDetailDto);
+
+        mockMvc.perform(get("/products/A000001"))
+            .andExpect(status().isOk())
+            .andExpect(content().string(
+                containsString("product")
             ));
     }
 }
