@@ -1,4 +1,4 @@
-package com.server.market.models;
+package com.server.market.models.image;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
@@ -10,13 +10,13 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "images")
+public class Image {
     @EmbeddedId
-    private CategoryId id;
+    private ImageId id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "url")
+    private String url;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -24,19 +24,19 @@ public class Category {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    private Category() {
+    public Image() {
     }
 
-    public Category(CategoryId id, String name) {
+    public Image(ImageId id, String url) {
         this.id = id;
-        this.name = name;
+        this.url = url;
     }
 
-    public CategoryId id() {
+    public ImageId id() {
         return id;
     }
 
-    public String name() {
-        return name;
+    public String url() {
+        return url;
     }
 }

@@ -1,8 +1,8 @@
 package com.server.market.controllers;
 
 import com.server.market.application.GetCategoryListService;
-import com.server.market.models.Category;
-import com.server.market.models.CategoryId;
+import com.server.market.models.category.Category;
+import com.server.market.models.category.CategoryId;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

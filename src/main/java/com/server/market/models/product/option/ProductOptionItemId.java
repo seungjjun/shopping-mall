@@ -1,21 +1,21 @@
-package com.server.market.models;
+package com.server.market.models.product.option;
 
 import jakarta.persistence.Column;
 
-public class CategoryId {
+public class ProductOptionItemId {
     @Column(name = "id")
     private String value;
 
-    public CategoryId() {
+    public ProductOptionItemId() {
     }
 
-    public CategoryId(String value) {
+    public ProductOptionItemId(String value) {
         this.value = value;
     }
 
     @Override
     public String toString() {
-        return "CategoryId{" +
+        return "ProductOptionItemId{" +
             "value='" + value + '\'' +
             '}';
     }
