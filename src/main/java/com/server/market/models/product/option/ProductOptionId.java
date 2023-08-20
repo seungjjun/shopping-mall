@@ -1,22 +1,17 @@
 package com.server.market.models.product.option;
 
-import jakarta.persistence.Column;
+import com.server.market.models.EntityId;
 
-public class ProductOptionId {
-    @Column(name = "id")
-    private String value;
-
-    public ProductOptionId() {
+public class ProductOptionId extends EntityId {
+    private ProductOptionId() {
+        super();
     }
 
     public ProductOptionId(String value) {
-        this.value = value;
+        super(value);
     }
 
-    @Override
-    public String toString() {
-        return "ProductOptionId{" +
-            "value='" + value + '\'' +
-            '}';
+    public static ProductOptionId generate() {
+        return new ProductOptionId(newTsid());
     }
 }

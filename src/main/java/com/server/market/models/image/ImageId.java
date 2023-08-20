@@ -1,22 +1,17 @@
 package com.server.market.models.image;
 
-import jakarta.persistence.Column;
+import com.server.market.models.EntityId;
 
-public class ImageId {
-    @Column(name = "id")
-    private String value;
-
-    public ImageId() {
+public class ImageId extends EntityId {
+    private ImageId() {
+        super();
     }
 
     public ImageId(String value) {
-        this.value = value;
+        super(value);
     }
 
-    @Override
-    public String toString() {
-        return "ImageId{" +
-            "value='" + value + '\'' +
-            '}';
+    public static ImageId generate() {
+        return new ImageId(newTsid());
     }
 }
