@@ -1,22 +1,17 @@
 package com.server.market.models.category;
 
-import jakarta.persistence.Column;
+import com.server.market.models.EntityId;
 
-public class CategoryId {
-    @Column(name = "id")
-    private String value;
-
-    public CategoryId() {
+public class CategoryId extends EntityId {
+    private CategoryId() {
+        super();
     }
 
     public CategoryId(String value) {
-        this.value = value;
+        super(value);
     }
 
-    @Override
-    public String toString() {
-        return "CategoryId{" +
-            "value='" + value + '\'' +
-            '}';
+    public static CategoryId generate() {
+        return new CategoryId(newTsid());
     }
 }
